@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        .form {
+            border: 1px solid white;
+            height: 340px;
+            width: 220px;
+            padding-left: 20px;
+            padding-top: 10px;
+            border-radius: 20px;
+            font-weight: bolder;
+             margin-left: 100px; 
+             /* position: absolute; */
+         margin-left: 40px;
+           margin-top: 80px; 
+           box-shadow: 0px 1px 2px 2px rgb(183, 252, 24);
+             /* text-align: center;  */
+        }
+       
+
+        input {
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+
+        button {
+            width: 175px;
+            margin-top: 5px;
+            /* margin-left: 2px; */
+        }
+        .result{
+            margin-left: 500px;
+            margin-top: -320px;
+
+        }
+        table{
+            border: 1px solid white;
+            width: 200px;
+            height: 200px;
+            padding-top: 5px;
+            padding-left: 2px;
+            border-radius: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 0px 1px 2px 2px rgb(181, 243, 35);
+        }
+        td{
+            font-weight: bolder;
+            padding-top: 5px;
+            padding-bottom: 5px;
+           
+        }
+        .l{
+            text-align: center;
+        }
+        th{
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+
+
+
+
+
+<body>
+    <div class="form">
+        <form>
+            <label> Name:</label> <br>
+            <input type="text" id="name1" placeholder="Name"><br>
+            <label>Roll no:</label><br> <input type="text" id="rollno" placeholder="Roll No"><br>
+            <label>Urdu :</label><br> <input type="text" id="urdu" placeholder="Urdu Marks"><br>
+            <label>English:</label> <br><input type="text" id="english" placeholder="English Marks"><br>
+            <label>Maths:</label><br> <input type="text" id="math" placeholder="Math Marks"><br>
+        </form>
+        <button onclick="percentage()">Submit</button>
+    </div>
+
+    <div class="result" id="r">
+
+        <table>
+            <tr><th colspan="2">RESULT </th></tr>
+            <tr>
+                <td>Name :</td>
+                <td id="n" class="l"></td>
+            </tr>
+
+            <tr>
+                <td>Roll No :</td>
+                <td id="rolln" class="l"></td>
+            </tr>
+            <tr>
+                <td>Urdu :</td>
+                <td id="u" class="l"></td>
+            </tr>
+            <tr>
+                <td>English :</td>
+                <td id="e" class="l"></td>
+            </tr>
+            <tr>
+                <td>Maths :</td>
+                <td id="m" class="l"></td>
+            </tr>
+            <tr>
+                <td>Grade :</td>
+                <td id="grd" class="l"></td>
+            </tr>
+            <tr>
+                <td>Percentage :</td>
+                <td id="p" class="l"></td>
+            </tr>
+            <tr>
+                <td>Obtained Marks :</td>
+                <td id="obtained" class="l"></td>
+            </tr>
+        </table>
+
+    </div>
+
+
+
+    <script>
+        function percentage() {
+            //  document.getElementById("r").style.visibility= hidden;
+            let name = document.getElementById("name1").value;
+            let rollno = document.getElementById("rollno").value
+            let urdu = +document.getElementById("urdu").value
+            let english = +document.getElementById("english").value
+            let math = +document.getElementById("math").value
+            if (urdu > 100 || english > 100 || math > 100) {
+                alert("your number is out of range !")
+            }
+            else {
+
+                document.getElementById("n").innerHTML = name;
+                n.style.color="blue"
+                document.getElementById("rolln").innerHTML = rollno;
+                rolln.style.color="blue"
+                document.getElementById("u").innerHTML = urdu;
+                u.style.color="blue"
+                document.getElementById("e").innerHTML = english;
+                e.style.color="blue"
+                document.getElementById("m").innerHTML = math;
+                m.style.color="blue"
+                let result = urdu + english + math;
+                document.getElementById("obtained").innerHTML = result;
+                obtained.style.color="blue"
+                let per = result / 300 * 100;
+                document.getElementById("p").innerHTML = Math.round(per) + "%";
+                p.style.color="green"
+                if(per<100 && per>=90){
+    document.getElementById("grd").innerHTML = "A+"
+    grd.style.color="blue"
+    }
+    else if(per<90 && per>=80){
+        document.getElementById("grd").innerHTML = "A"
+        grd.style.color="blue"
+    }
+    else if (per<80 && per>=70){
+        document.getElementById("grd").innerHTML = "B"
+        grd.style.color="blue"
+    }
+    else if (per<70 && per>=60){
+        document.getElementById("grd").innerHTML = "C"
+        grd.style.color="blue"
+    }else if(per<60 && per>=50){
+        document.getElementById("grd").innerHTML = "D"
+        grd.style.color="Yellow"
+    }
+    else if(per<50 && per>=33){
+        document.getElementById("grd").innerHTML = "E"
+        grd.style.color="Orange"
+    }
+    else{
+        document.getElementById("grd").innerHTML = "Fail"
+        grd.style.color="red"
+    }
+            }
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
